@@ -10,7 +10,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           if (id === downloadId && state && state.current === 'complete') {
             chrome.tabs.sendMessage(sender.tab.id, { action: 'imageDownloaded', imageId });
               chrome.downloads.onChanged.removeListener(onChanged);
-              chrome.downloads.setShelfEnabled(false);
+            chrome.downloads.setShelfEnabled(false);
+            
           }
         });
       });
